@@ -1,0 +1,111 @@
+/* style.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.background-graphics {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #d56fef 0%, #7a8de4 100%);
+  z-index: -2;
+  overflow: hidden;
+}
+
+/*  animated circles */
+.background-graphics::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  top: 20%;
+  left: 10%;
+  animation: float 10s infinite alternate ease-in-out;
+}
+
+.background-graphics::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  bottom: 15%;
+  right: 10%;
+  animation: float 12s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-30px); }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.heading {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 48px;
+  font-family: Brush Script MT;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.calculator {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  width: 260px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+#display {
+  width: 100%;
+  height: 50px;
+  background: #111;
+  color: #fff;
+  font-size: 24px;
+  text-align: right;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  height: 50px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #444;
+}
+
+button.zero {
+  grid-column: span 2;
+}
